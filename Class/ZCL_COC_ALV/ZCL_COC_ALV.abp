@@ -4,7 +4,7 @@ class ZCL_COC_ALV definition
   create public .
 
 public section.
-
+***
   class-data MV_OKCODE type SY-UCOMM .
   data MO_ALV_STREE type ref to CL_GUI_ALV_TREE_SIMPLE .
   data MO_ALV_TREE type ref to CL_GUI_ALV_TREE .
@@ -327,7 +327,7 @@ CLASS ZCL_COC_ALV IMPLEMENTATION.
         program_error          = 2
         OTHERS                 = 3.
 
-    "RAWSTRING(RSTR) Å¸ÀÔ ÇÊµå Ãß°¡
+    "RAWSTRING(RSTR) íƒ€ìž… í•„ë“œ ì¶”ê°€
     LO_STR_TYPE ?= CL_ABAP_STRUCDESCR=>DESCRIBE_BY_NAME( IV_STRUCTURE ).
     DATA(LT_DFIES) = READ_STRUCTDESCR( LO_STR_TYPE ).
 
@@ -607,7 +607,7 @@ CLASS ZCL_COC_ALV IMPLEMENTATION.
 
     CASE IV_TYPE.
       WHEN '1'.
-        MS_LAYOUT-SEL_MODE   = ZCOC_D. " A:Çà/¿­, B: ´ÜÀÏ, C:º¹¼ö, D:¼¿
+        MS_LAYOUT-SEL_MODE   = ZCOC_D. " A:í–‰/ì—´, B: ë‹¨ì¼, C:ë³µìˆ˜, D:ì…€
         MS_LAYOUT-ZEBRA      = ABAP_ON.
         MS_LAYOUT-CWIDTH_OPT = ABAP_ON.
         MS_LAYOUT-NO_ROWMARK = ABAP_ON.
@@ -779,8 +779,8 @@ CLASS ZCL_COC_ALV IMPLEMENTATION.
   
   	CLEAR MT_DROPDOWN.
   	
-  	"'1'ÀÏ °æ¿ì, µµ¸ÞÀÎ °ªÀ¸·Î ¸ñ·ÏÀ» ¸¸µé°í,
-  	"±× ¿ÜÀÇ TYPE¿¡ ´ëÇØ¼­´Â ¿ä±¸µÇ´Â ·ÎÁ÷¿¡ ÀÇÇØ ±¸ÇöÇÑ´Ù.
+  	"'1'ì¼ ê²½ìš°, ë„ë©”ì¸ ê°’ìœ¼ë¡œ ëª©ë¡ì„ ë§Œë“¤ê³ ,
+  	"ê·¸ ì™¸ì˜ TYPEì— ëŒ€í•´ì„œëŠ” ìš”êµ¬ë˜ëŠ” ë¡œì§ì— ì˜í•´ êµ¬í˜„í•œë‹¤.
   	CASE IV_TYPE.
   	  
   	  WHEN '1'.
@@ -820,20 +820,20 @@ CLASS ZCL_COC_ALV IMPLEMENTATION.
   	  IO_GRID = MO_GRID.
   	ENDIF.
   	
-  	"·¹ÀÌ¾Æ¿ô Àû¿ë
+  	"ë ˆì´ì•„ì›ƒ ì ìš©
   	IF IS_LAYO IS NOT INITIAL.
   	  IO_GRID->SET_FRONTEND_LAYOUT( IS_LAYOUT = IS_LAYO ).
   	ENDIF.
   	
-  	"ÇÊµåÄ«Å»·Î±× Àû¿ë
+  	"í•„ë“œì¹´íƒˆë¡œê·¸ ì ìš©
   	IF IT_FCAT IS NOT INITIAL.
   	  IO_GRID->SET_FRONTEND_FIELDCATALOG( IT_FIELDCATALOG = IT_FCAT ).
   	ENDIF.
   	
-  	"SORT Àû¿ë
+  	"SORT ì ìš©
   	IO_GRID->SET_SORT_CRITERIA( IT_SORT = IT_SORT ).
   	
-  	"FILTER Àû¿ë
+  	"FILTER ì ìš©
   	IO_GRID->SET_FILTER_CRITERIA( IT_FILTER = IT_FILT ).
   	
   	"REFRESH ALV
