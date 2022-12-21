@@ -4,7 +4,7 @@ class ZCL_COC_ALV definition
   create public .
 
 public section.
-***
+
   class-data MV_OKCODE type SY-UCOMM .
   data MO_ALV_STREE type ref to CL_GUI_ALV_TREE_SIMPLE .
   data MO_ALV_TREE type ref to CL_GUI_ALV_TREE .
